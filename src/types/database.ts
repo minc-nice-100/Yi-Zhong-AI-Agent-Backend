@@ -30,10 +30,10 @@ export interface user {
     created_at: Date;
     
     /** 更新时间 - 用户信息最后修改的时间戳，可选字段 */
-    updated_at?: Date;
+    updated_at?: Date | null;
     
     /** 删除时间 - 软删除标记，记录用户被删除的时间戳，可选字段 */
-    deleted_at?: Date;
+    deleted_at?: Date | null;
     
     /** OAuth2认证信息 - 第三方登录平台的认证数据，可选字段 */
     oauth2?: any;
@@ -56,7 +56,10 @@ export interface AI_chat_session{
     created_at: Date;
     
     /** 会话更新时间 - 会话最后活动的时间戳，可选字段 */
-    updated_at?: Date;
+    updated_at?: Date | null;
+
+    /** 删除时间 - 软删除标记，记录会话被删除的时间戳，可选字段 */
+    deleted_at?: Date | null;
 }
 
 /**
@@ -72,4 +75,10 @@ export interface AI_chat_message extends AiRequest{
     
     /** 关联的用户ID - 引用AI_chat_session表的user_id字段，建立消息与用户的关联 */
     user_id:AI_chat_session["user_id"];
+
+    /** 消息创建时间 - 消息发送的时间戳 */
+    created_at: Date;
+
+    /** 删除时间 - 软删除标记，记录消息被删除的时间戳，可选字段 */
+    deleted_at?: Date | null;
 }
