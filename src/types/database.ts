@@ -37,6 +37,7 @@ export interface user {
     
     /** OAuth2认证信息 - 第三方登录平台的认证数据，可选字段 */
     oauth2?: any;
+
 }
 
 
